@@ -11,10 +11,10 @@ A dead simple cross-platform desktop app for outlining a task and setting a time
     - Show the task’s name
     - Display remaining time
     - Show list of “definition of done (DoD)” conditions for the task
+        - DoD condition labels are shown red until they are checked off and turn green
     - Alerts user when they are approaching (< 5 mins) the end of their time box:
       - Remaining time label turns red
-      - DoD condition labels turn green when they are checked off
-      - DoD condition labels turn red when the time dips below 5 minutes and they aren’t yet checked off
+
 - Manages task presets:
     - Save new task presets
     - Update existing presets
@@ -24,8 +24,10 @@ A dead simple cross-platform desktop app for outlining a task and setting a time
  
 ## Planned Features
 
+- Automated timer window sizing: Timer windows automatically adjusted to fit their contents
 - Preset Contexts: Switch between different sets of presets
 - Configurable alert timing: Provide more options for time alerts
+- Configure sounds to play for time alerts or timer expiration
 
 ## To run:
 1. Clone the repository:
