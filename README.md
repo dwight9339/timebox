@@ -5,6 +5,23 @@ A dead simple cross-platform desktop app for outlining a task and setting a time
 ![Screenshot 2025-06-19 112602](https://github.com/user-attachments/assets/7af1b569-7e32-4f92-9d18-a2c639aec4f8)
 ![Screenshot 2025-06-18 210017](https://github.com/user-attachments/assets/ef36701a-ad1f-4a73-be52-3cd7a103fc1a)
 
+## Features
+
+- Spawns task timer windows that:
+    - Show the task’s name
+    - Display remaining time
+    - Show list of “definition of done (DoD)” conditions for the task
+    - Alerts user when they are approaching (< 5 mins) the end of their time box:
+      - Remaining time label turns red
+      - DoD condition labels turn green when they are checked off
+      - DoD condition labels turn red when the time dips below 5 minutes and they aren’t yet checked off
+- Manages task presets:
+    - Save new task presets
+    - Update existing presets
+    - Delete unwanted presets
+- Manages app settings:
+    - Can optionally configure path to app preset file
+
 ## To run:
 1. Clone the repository:
 ```
