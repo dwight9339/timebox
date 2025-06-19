@@ -7,20 +7,9 @@ A dead simple, minimalist, cross-platform desktop app for outlining a task and s
 
 ## Features
 
-- Spawns task timer windows that:
-    - Show the task’s name
-    - Display remaining time
-    - Show list of “definition of done (DoD)” conditions for the task
-        - DoD condition labels are shown red until they are checked off and turn green
-    - Alerts user when they are approaching (< 5 mins) the end of their time box:
-      - Remaining time label turns red
-
-- Manages task presets:
-    - Save new task presets
-    - Update existing presets
-    - Delete unwanted presets
-- Manages app settings:
-    - Can optionally configure path to app preset file
+- Set task timers
+- Manage task presets
+- Optionally: Set custom path to presets file
  
 ## Planned Features
 
