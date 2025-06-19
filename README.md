@@ -21,6 +21,11 @@ A dead simple cross-platform desktop app for outlining a task and setting a time
     - Delete unwanted presets
 - Manages app settings:
     - Can optionally configure path to app preset file
+ 
+## Planned Features
+
+- Preset Contexts: Switch between different sets of presets
+- Configurable alert timing: Provide more options for time alerts
 
 ## To run:
 1. Clone the repository:
