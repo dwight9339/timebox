@@ -29,7 +29,7 @@ class TimeBoxApp:
         self.task_entry.grid(row=0, column=1, pady=5)
         self.task_entry.bind("<KeyRelease>", self.update_action_buttons)
 
-        self.dod_label = tk.Label(master, text="Definition of Done (one per line):")
+        self.dod_label = tk.Label(master, text="DoD Items (one per line):")
         self.dod_label.grid(row=1, column=0, sticky="nw")
 
         self.dod_text = ScrolledText(master, width=30, height=6)
