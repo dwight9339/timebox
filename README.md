@@ -36,6 +36,10 @@ pip install -r requirements.txt
 
 3. Build the binary:
 ```
+# On Windows (to prevent CMD window creation)
+pyinstaller --onefile --windowed timebox.py
+
+# On Mac/Linux
 pyinstaller --onefile timebox.py
 ```
 
