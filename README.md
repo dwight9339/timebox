@@ -28,6 +28,7 @@ A dead simple, minimalist, cross-platform desktop app for outlining a task and s
 - Preset Contexts: Switch between different sets of presets
 - Configurable alert timing: Provide more options for time alerts
 - Configure sounds to play for time alerts or timer expiration
+- Break up entries in the DoD items field visually with automated "-" characters at the beginning of each line
 
 ## To run:
 1. Clone the repository:
