@@ -1,5 +1,5 @@
 # Timebox
-A simple cross-platform desktop app for outlining a task and setting a timebox timer.
+A dead simple cross-platform desktop app for outlining a task and setting a timebox timer.
 
 ![Screenshot 2025-06-18 205755](https://github.com/user-attachments/assets/5acdd5f8-004a-4504-bad7-e9da9a22ac02)
 ![Screenshot 2025-06-18 204734](https://github.com/user-attachments/assets/e5daffa9-40a0-4f0a-adf6-8659aa216959)
@@ -20,12 +20,21 @@ python ./timebox.py
 ## Building from source
 To create a standalone executable:
 
-1. Install PyInstaller:
+1. Create and activate a virtual environment:
 ```
-pip install pyinstaller
+python -m venv venv
+# On Windows:
+.\venv\Scripts\activate
+# On Mac/Linux:
+source venv/bin/activate
 ```
 
-2. Build the binary:
+2. Install dependencies:
+```
+pip install -r requirements.txt
+```
+
+3. Build the binary:
 ```
 pyinstaller --onefile timebox.py
 ```
