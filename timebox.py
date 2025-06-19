@@ -55,15 +55,18 @@ class TimeBoxApp:
         countdown_label = tk.Label(timer_win, text="", font=("Helvetica", 24))
         countdown_label.pack(pady=10)
 
-        dod_frame = tk.Frame(timer_win)
-        dod_frame.pack(pady=5)
+        # Only create DoD frame and checkboxes if there are non-empty DoD lines
+        dod_lines = [line for line in dod_lines if line.strip()]
+        if dod_lines:
+            dod_frame = tk.Frame(timer_win)
+            dod_frame.pack(pady=5)
 
-        self.dod_vars = []
-        for dod_item in dod_lines:
-            var = tk.BooleanVar()
-            chk = tk.Checkbutton(dod_frame, text=dod_item, variable=var, anchor="w", justify="left")
-            chk.pack(fill="x", anchor="w")
-            self.dod_vars.append(var)
+            self.dod_vars = []
+            for dod_item in dod_lines:
+                var = tk.BooleanVar()
+                chk = tk.Checkbutton(dod_frame, text=dod_item, variable=var, anchor="w", justify="left")
+                chk.pack(fill="x", anchor="w")
+                self.dod_vars.append(var)
 
         self.run_timer(minutes * 60, countdown_label)
 
@@ -73,6 +76,7 @@ class TimeBoxApp:
         if remaining > 0:
             label.after(1000, self.run_timer, remaining - 1, label)
         else:
+            self.master.bell()  # Plays system beep sound
             messagebox.showinfo("⏰ Time Box Done", "Your time box has ended!")
 
     def clear_form(self):
