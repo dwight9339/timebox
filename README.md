@@ -1,8 +1,8 @@
 # Timebox
 A dead simple cross-platform desktop app for outlining a task and setting a timebox timer.
 
-![Screenshot 2025-06-18 205755](https://github.com/user-attachments/assets/5acdd5f8-004a-4504-bad7-e9da9a22ac02)
-![Screenshot 2025-06-18 204734](https://github.com/user-attachments/assets/e5daffa9-40a0-4f0a-adf6-8659aa216959)
+![Screenshot 2025-06-19 112430](https://github.com/user-attachments/assets/ef56c195-f3ec-421f-a294-442b55ef5c7b)
+![Screenshot 2025-06-19 112602](https://github.com/user-attachments/assets/7af1b569-7e32-4f92-9d18-a2c639aec4f8)
 ![Screenshot 2025-06-18 210017](https://github.com/user-attachments/assets/ef36701a-ad1f-4a73-be52-3cd7a103fc1a)
 
 ## To run:
