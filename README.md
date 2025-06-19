@@ -1,5 +1,5 @@
 # Timebox
-A dead simple cross-platform desktop app for outlining a task and setting a timebox timer.
+A dead simple, minimalist, cross-platform desktop app for outlining a task and setting a timebox timer.
 
 ![Screenshot 2025-06-19 112430](https://github.com/user-attachments/assets/ef56c195-f3ec-421f-a294-442b55ef5c7b)
 ![Screenshot 2025-06-19 112602](https://github.com/user-attachments/assets/7af1b569-7e32-4f92-9d18-a2c639aec4f8)
