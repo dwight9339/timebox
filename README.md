@@ -2,7 +2,7 @@
 A dead simple, minimalist, cross-platform desktop app for outlining a task and setting a timebox timer.
 
 ![Screenshot 2025-06-22 113905](https://github.com/user-attachments/assets/f57e960c-8131-4a3d-a10f-bce7fe024cf5)
-![Screenshot 2025-06-19 112602](https://github.com/user-attachments/assets/7af1b569-7e32-4f92-9d18-a2c639aec4f8)
+![Screenshot 2025-06-22 114144](https://github.com/user-attachments/assets/755bb0ce-e2d6-4fd7-9610-58c96cd967e3)
 ![Screenshot 2025-06-18 210017](https://github.com/user-attachments/assets/ef36701a-ad1f-4a73-be52-3cd7a103fc1a)
 
 ## Features
