@@ -9,15 +9,19 @@ A dead simple, minimalist, cross-platform desktop app for outlining a task and s
 
 - Set task timers
 - Manage task presets
-- Optionally: Set custom path to presets file
+- Preset contexts: Create and manage different *sets* of presets related to different work contexts.
+- Optionally set custom path to the contexts folder on your machine
+- Runs locally! Disconnect from your distracting networks if needed
  
-## Planned Features
+## Sharing Contexts
 
-- Automated timer window sizing: Timer windows automatically adjusted to fit their contents
-- Preset Contexts: Switch between different sets of presets
-- Configurable alert timing: Provide more options for time alerts
-- Configure sounds to play for time alerts or timer expiration
-- Break up entries in the DoD items field visually with automated "-" characters at the beginning of each line
+Your preset contexts are saved as separate `.json` files in a folder on your machine. By default, this folder is located at `~/.timebox_contexts` but this can be changed via the settings page.
+
+To share a context with someone, just grab the `.json` file from this folder and hand it off. Simple as that!
+
+To import a shared context, just place it in your contexts folder and restart the program, if needed.
+
+Contexts can even be synced by using a shared directory (Dropbox, Google Drive, etc.)
 
 ## To run:
 1. Clone the repository:
