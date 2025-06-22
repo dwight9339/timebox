@@ -2,3 +2,5 @@
 /build
 /dist
 *.spec
+.secrets
+__pycache__

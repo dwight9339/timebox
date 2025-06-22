@@ -33,15 +33,22 @@ jobs:
     - name: Generate SHA256 Checksum
       run: |
         cd dist
-        shasum -a 256 timebox* > checksums.txt || certutil -hashfile timebox.exe SHA256 > checksums.txt || openssl dgst -sha256 timebox > checksums.txt
+        if [ -f Timebox ]; then
+          shasum -a 256 Timebox > checksums.txt
+        elif [ -f Timebox.exe ]; then
+          certutil -hashfile Timebox.exe SHA256 > checksums.txt
+        elif [ -d Timebox.app ]; then
+          zip -r Timebox-macos.zip Timebox.app
+          shasum -a 256 Timebox-macos.zip > checksums.txt
+        fi
 
     - name: Upload release assets
       uses: softprops/action-gh-release@v1
       with:
-        name: "Release ${{ github.sha }}"
-        tag_name: "${{ github.sha }}"
+        name: "Release ${{ github.ref_name }}"
+        tag_name: "${{ github.ref_name }}"
         files: |
-          dist/timebox*
+          dist/Timebox*
           dist/checksums.txt
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
