@@ -33,17 +33,25 @@ jobs:
       run: |
         pyinstaller --onefile --windowed --name "Timebox" timebox.py
 
-    - name: Generate SHA256 Checksum
+    - name: Generate SHA256 (Linux/macOS)
+      if: runner.os != 'Windows'
       run: |
         cd dist
         if [ -f Timebox ]; then
           shasum -a 256 Timebox > checksums.txt
-        elif [ -f Timebox.exe ]; then
-          certutil -hashfile Timebox.exe SHA256 > checksums.txt
         elif [ -d Timebox.app ]; then
           zip -r Timebox-macos.zip Timebox.app
           shasum -a 256 Timebox-macos.zip > checksums.txt
         fi
+
+    - name: Generate SHA256 (Windows)
+      if: runner.os == 'Windows'
+      shell: powershell
+      run: |
+        cd dist
+        if (Test-Path Timebox.exe) {
+          certutil -hashfile Timebox.exe SHA256 | Out-File -Encoding ascii checksums.txt
+        }
 
     - name: Upload release assets
       uses: softprops/action-gh-release@v1
@@ -52,6 +60,7 @@ jobs:
         tag_name: "${{ github.ref_name }}"
         files: |
           dist/Timebox*
+          dist/*.zip
           dist/checksums.txt
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
