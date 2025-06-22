@@ -3,10 +3,11 @@ name: Build and Release
 on:
   push:
     tags:
-      - 'v*'
+      - 'v*'  # Triggers only on version tags like v0.1.4
 
 permissions:
   contents: write
+  actions: read
 
 jobs:
   build:
@@ -31,36 +32,39 @@ jobs:
 
     - name: Build executable
       run: |
-        pyinstaller --onefile --windowed --name "Timebox" timebox.py
-
-    - name: Generate SHA256 (Linux/macOS)
-      if: runner.os != 'Windows'
-      run: |
-        cd dist
-        if [ -f Timebox ]; then
-          shasum -a 256 Timebox > checksums.txt
-        elif [ -d Timebox.app ]; then
-          zip -r Timebox-macos.zip Timebox.app
-          shasum -a 256 Timebox-macos.zip > checksums.txt
+        if [[ "${{ runner.os }}" == "macOS" ]]; then
+          pyinstaller --windowed --onedir --name Timebox timebox.py
+        else
+          pyinstaller --onefile --windowed --name Timebox timebox.py
         fi
+      shell: bash
 
-    - name: Generate SHA256 (Windows)
+    - name: Package & Checksum (Linux/macOS)
+      if: runner.os != 'Windows'
+      shell: bash
+      run: |
+        mkdir -p dist/${{ runner.os }}
+        cp -R dist/Timebox* dist/${{ runner.os }}/
+        cd dist
+        zip -r Timebox-${{ runner.os }}.zip ${{ runner.os }}
+        shasum -a 256 Timebox-${{ runner.os }}.zip > checksums-${{ runner.os }}.txt
+
+    - name: Package & Checksum (Windows)
       if: runner.os == 'Windows'
       shell: powershell
       run: |
-        cd dist
-        if (Test-Path Timebox.exe) {
-          certutil -hashfile Timebox.exe SHA256 | Out-File -Encoding ascii checksums.txt
-        }
+        New-Item -ItemType Directory -Force -Path dist\Windows
+        Copy-Item dist\Timebox.exe dist\Windows\
+        Compress-Archive -Path dist\Windows\* -DestinationPath dist\Timebox-Windows.zip
+        certutil -hashfile dist\Timebox-Windows.zip SHA256 | Out-File -Encoding ascii dist\checksums-Windows.txt
 
     - name: Upload release assets
       uses: softprops/action-gh-release@v1
       with:
+        tag_name: ${{ github.ref_name }}
         name: "Release ${{ github.ref_name }}"
-        tag_name: "${{ github.ref_name }}"
         files: |
-          dist/Timebox*
-          dist/*.zip
-          dist/checksums.txt
+          dist/Timebox-*.zip
+          dist/checksums-*.txt
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
