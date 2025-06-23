@@ -67,7 +67,8 @@ class TimeBoxApp:
         self.dod_text = ScrolledText(master, width=30, height=6)
         self.dod_text.grid(row=1, column=1, pady=5)
         self.dod_text.bind("<KeyRelease>", self.update_action_buttons)
-
+        self.dod_text.bind("<Return>", self.handle_dod_newline)
+        self.dod_text.bind("<FocusIn>", self.insert_dash_on_focus)
         self.time_label = tk.Label(master, text="Time Limit (minutes):")
         self.time_label.grid(row=2, column=0, sticky="w")
 
